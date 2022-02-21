@@ -1,13 +1,12 @@
-import _ from "lodash";
-import React, { Component } from "react";
+import _ from 'lodash';
+import React, { Component } from 'react';
 class TableBody extends Component {
   rendercell = (item, column) => {
     if (column.content) return column.content(item);
     return _.get(item, column.path);
   };
-  createKey = (item, column) => {
-    return item._id + (column.path || column.key);
-  };
+  createKey = (item, column) => item._id + (column.path || column.key);
+
   render() {
     const { data, columns } = this.props;
     return (
