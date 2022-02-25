@@ -9,7 +9,7 @@ const MovieForm = ({ match }) => {
           this.history.push("/movie");
         }}
       >
-        Save{" "}
+        Save
       </button>
     </div>
   );

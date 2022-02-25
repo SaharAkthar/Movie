@@ -1,6 +1,10 @@
 import React from "react";
 const Rental = () => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>Rental</h1>
+    </div>
+  );
 };
 
 export default Rental;

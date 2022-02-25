@@ -39,6 +39,16 @@ const Navbar = () => {
               Not Found
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link disabled" to="/login">
+              Login
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link disabled" to="/register">
+              Register
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
