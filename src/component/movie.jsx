@@ -1,26 +1,26 @@
-import React, { Component } from "react";
-import MoviesTable from "./movieTable";
-import { getMovie, getMovies } from "../services/fakemovies";
-import Pagination from "./common/pagination";
-import { getGenres } from "../services/fakeGenreService";
-import { paginate } from "../utilis/paginate";
-import ListGroup from "./common/listGroup";
-import { genre } from "../services/fakeGenreService";
-import _ from "lodash";
-import SearchBox from "./selectbox";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import MoviesTable from './movieTable';
+import { getMovie, getMovies } from '../services/fakemovies';
+import Pagination from './common/pagination';
+import { getGenres } from '../services/fakeGenreService';
+import { paginate } from '../utilis/paginate';
+import ListGroup from './common/listGroup';
+import { genre } from '../services/fakeGenreService';
+import _ from 'lodash';
+import SearchBox from './selectbox';
+import { Link } from 'react-router-dom';
 class Movie extends Component {
   state = {
     movies: [],
     genres: [],
-    searchQuery: "",
+    searchQuery: '',
     selectedGenre: null,
     pageSize: 4,
     currentPage: 1,
-    sortColumn: { path: "title", order: "asc" },
+    sortColumn: { path: 'title', order: 'asc' },
   };
   componentDidMount() {
-    const genres = [{ _id: "", name: "All Genres" }, ...getGenres()];
+    const genres = [{ _id: '', name: 'All Genres' }, ...getGenres()];
     this.setState({ movies: [...getMovies()], genres: genres });
   }
   getPageData = () => {
@@ -43,7 +43,7 @@ class Movie extends Component {
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
     const movie = paginate(sorted, currentPage, pageSize);
-    console.log("movie", movie);
+    console.log('movie', movie);
     return { totalcount: filtered.length, data: movie };
   };
   handleDelete = (movie) => {
@@ -54,7 +54,7 @@ class Movie extends Component {
     this.setState({ currentPage: page });
   };
   handleSort = (path) => {
-    this.setState({ sortColumn: { path: path, order: "asc" } });
+    this.setState({ sortColumn: { path: path, order: 'asc' } });
   };
   handleLike = (movie) => {
     const movies = { ...this.state.movies };
@@ -63,7 +63,7 @@ class Movie extends Component {
     this.setState({ movies });
   };
   handleGenreSelect = (genre) => {
-    this.setState({ selectedGenre: genre, searchQuery: "", currentPage: 1 });
+    this.setState({ selectedGenre: genre, searchQuery: '', currentPage: 1 });
   };
   handleSearch = (query) => {
     this.setState({
@@ -89,7 +89,7 @@ class Movie extends Component {
         </div>
         <div className="col">
           <Link
-            to="/movies/new"
+            to={'/movies/new' + ''}
             className="btn btn-primary"
             style={{ marginBottom: 20 }}
           >
@@ -111,7 +111,7 @@ class Movie extends Component {
             itemCount={totalcount}
             pageSize={this.pageSize}
             currentPage={this.currentPage}
-            onPageChange={this.handePageChange}
+            onPageChange={this.handlePageChange}
           ></Pagination>
         </div>
       </div>
