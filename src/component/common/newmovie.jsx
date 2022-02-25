@@ -39,14 +39,14 @@ class Newmovie extends Form {
 
   componentDidMount() {
     const genres = getGenres();
-    // this.setState({ genres: genres });
+    this.setState({ genres: genres });
     const movieId = this.props.match.params.id;
     console.log(this.props);
     if (movieId === 'new') return;
-    const movie = getMovies(movieId);
-    console.log(movie, movieId);
-    if (!movie) return this.props.history.replace('/not-found');
-    this.setState({ data: this.mapToViewModel(movie), genres: genres });
+    // const movie = getMovies(movieId);
+    // console.log(movie, movieId);
+    // if (!movie) return this.props.history.replace('/not-found');
+    // this.setState({ data: this.mapToViewModel(movie) });
   }
   mapToViewModel(movie) {
     return {
